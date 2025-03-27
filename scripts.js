@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Smooth scrolling for navigation buttons
-    const navButtons = document.querySelectorAll('.nav-btn, .dot-nav-btn');
+    const navButtons = document.querySelectorAll('.nav-btn, .dot-nav-btn, .logo-btn');
     const navbar = document.querySelector('.navbar');
     
     navButtons.forEach(button => {
