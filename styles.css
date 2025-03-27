@@ -1,5 +1,3 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap');
 
 /* Reset and base styles */
 * {
@@ -25,7 +23,7 @@ html {
 }
 
 body {
-    background-image: url('res/bg3.jpg') !important;
+    background-image: url(res/bg3.jpg) !important;
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;
@@ -250,7 +248,7 @@ p {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url('res/pexels-irina-634548.jpg') !important;
+    background-image: url(res/pexels-irina-634548.jpg) !important;
     background-size: 100% 200% !important;
     background-position: center var(--background-position) !important;
     z-index: -1;
@@ -269,9 +267,6 @@ p {
     align-items: center;
     scroll-snap-align: center;
 }
-
-/* First section special styling */
-
 
 /* Glass container styles */
 .glass-container {
