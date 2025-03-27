@@ -242,5 +242,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
 
+    // Handle scroll arrow visibility
+    const scrollArrow = document.getElementById('scroll-arrow');
+    if (scrollArrow) {
+        function updateScrollArrowVisibility() {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show arrow if not at bottom (with a small threshold)
+            if (scrollPosition + windowHeight < documentHeight - 100) {
+                scrollArrow.style.opacity = '1';
+                scrollArrow.style.pointerEvents = 'auto';
+            } else {
+                scrollArrow.style.opacity = '0';
+                scrollArrow.style.pointerEvents = 'none';
+            }
+        }
+
+        // Initial check
+        updateScrollArrowVisibility();
+
+        // Update on scroll
+        window.addEventListener('scroll', updateScrollArrowVisibility);
+    }
+});
