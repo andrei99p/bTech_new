@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 120 40" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      @media (max-width: 768px) {
+        text { font-size: 14px; }
+      }
+      @media (max-width: 480px) {
+        text { font-size: 12px; }
+      }
+    </style>
+  </defs>
+  <rect width="40" height="40" rx="8" fill="#219EBC"/>
+  <rect x="44" width="32" height="40" rx="8" fill="#8ECAE6"/>
+  <rect x="80" width="40" height="40" rx="20" fill="#FB8500"/>
+  <text x="60" y="28" font-family="Arial" font-size="16" text-anchor="middle" fill="#023047" font-weight="bold">LOGO</text>
+</svg> 
