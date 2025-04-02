@@ -144,7 +144,7 @@ body {
 
 /* Global heading and paragraph styles */
 h2 {
-    font-size: clamp(1.2rem, calc(1.8vw + 1rem), 4rem) !important;
+  font-size: clamp(1.2rem, calc(1.8vw + 1rem), 4rem) !important;
   margin-bottom: clamp(0.5rem, 2vw, 1rem);
   color: var(--light) !important;
   text-align: center;
@@ -153,14 +153,28 @@ h2 {
   line-height: 1.2;
 }
 
+h3 {
+  font-size: clamp(1rem, calc(1vw + 1rem), 3rem) !important;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  color: var(--light) !important;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: clamp(17.5rem, calc(80vw - 2rem), min(90vw, 75rem));
+  width: 90%; /* Ensures responsiveness on smaller screens */
+  margin: 0 auto; /* Centers the text horizontally */
+
+}
+
 p {
   font-size: clamp(1rem, calc(0.5vw + 1rem), 2rem) !important;
   line-height: clamp(1.4, 2vw, 1.6);
   color: var(--light) !important;
-  text-align: justify;
+  text-align: left;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
   font-weight: 400;
-  max-width: 600px;
+  max-width: clamp(17.5rem, calc(80vw - 2rem), min(90vw, 75rem));
   width: 90%; /* Ensures responsiveness on smaller screens */
   margin: 0 auto; /* Centers the text horizontally */
 }
@@ -254,7 +268,7 @@ p {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url(res/pexels-irina-634548.jpg) !important;
+    /*background-image: url(res/pexels-irina-634548.jpg) !important;*/
     background-size: 100% 200% !important;
     background-position: center var(--background-position) !important;
     z-index: -1;
@@ -277,7 +291,7 @@ p {
 /* Glass container styles */
 .glass-container {
     width: 100%;
-    max-width: clamp(45rem, 90vw, 75rem);
+    width: clamp(17.5rem, calc(80vw - 2rem), min(90vw, 75rem));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,18 +300,19 @@ p {
 }
 
 .wrapper {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     width: clamp(17.5rem, calc(80vw - 2rem), min(90vw, 75rem));
-    min-height: clamp(400px, 60vh, 550px);
+    min-height: clamp(250px, 40vh, 400px);
     background: rgba(255, 255, 255, 0) !important;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
     position: relative;
-    overflow: hidden;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: none; /* Remove max-height constraint */
     height: auto;
 }
 
@@ -323,6 +338,38 @@ p {
     position: relative;
     z-index: 1;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.description-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem; /* Add padding for better readability */
+}
+
+.description-blocks h3, 
+.description-blocks p {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left; /* Change from justify to left for better readability */
+    max-width: none; /* Remove max-width constraint */
+    overflow-wrap: break-word; /* Ensure text wraps properly */
+}
+
+.intro-block {
+    font-size: clamp(1.2em, calc(1vw + 1em), 1.4em); /* Make font size more responsive */
+    line-height: 1.4;
+    width: 100%;
+}
+
+.main-block, 
+.closing-block {
+    font-size: clamp(1em, calc(0.5vw + 1em), 1.1em); /* Make font size more responsive */
+    line-height: 1.6;
+    width: 100%;
 }
 
 /* Keep accent styles */
@@ -526,16 +573,4 @@ footer {
 /* Update wrapper styles for about section */
 #section3 .wrapper {
     padding: clamp(2rem, 4vw, 3rem);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .about-columns {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .about-column {
-        padding: 1rem;
-    }
 }
