@@ -37,15 +37,17 @@ html {
 /* Base styles */
 body {
     background-image: url(res/design.svg);
-    background-size: cover; /* Ensure the background image covers the entire viewport */
-    background-position: center center; /* Start with the background centered */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-    min-height: 100vh; /* Ensure the body takes the full height of the viewport */
-    height: 100%;
-    color: var(--light) !important;
-    padding-top: 0 !important;
-    margin: 0 !important; /* Reset margins */
+    background-size: 150%;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /*background: radial-gradient(circle at center, var(--dark) 85%, var(--accent) 130%);*/
+    min-height: 100vh;
+    color: var(--light) !important;  /* Required !important */
+    padding-top: 0;
 }
+
+
 
 /* Navbar styles */
 .navbar {
