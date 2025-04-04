@@ -267,4 +267,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update on scroll
         window.addEventListener('scroll', updateScrollArrowVisibility);
     }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', function() {
+        let scrollPosition = window.scrollY; // Get the current scroll position
+        
+        // Set the background position based on scroll
+        document.body.style.backgroundPosition = `center ${-(scrollPosition * 0.5)}px`; // Adjust the multiplier for the desired speed
+    });    
+
 });
+
+
