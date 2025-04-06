@@ -10,6 +10,7 @@
 html {
     scroll-behavior: smooth;
     overflow-y: scroll;
+    scroll-snap-type: y proximity;
 }
 
 /* Theme variables */
@@ -36,7 +37,7 @@ html {
 /* Base styles */
 body {
     background-image: url(res/design.svg);
-    background-size: 150%;
+    background-size: 130%;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -161,7 +162,7 @@ body {
 
 /* Typography */
 h2 {
-    font-size: clamp(1.2rem, calc(1.8vw + 1rem), 4rem) !important;
+    font-size: clamp(1.5rem, calc(1rem + 2vw), 5rem) !important;
     margin-bottom: clamp(0.5rem, 2vw, 1rem);
     color: var(--light);
     text-align: center;
@@ -172,7 +173,7 @@ h2 {
 
 
 h3 {
-    font-size: clamp(1rem, calc(1vw + 1rem), 3rem);
+    font-size: clamp(1.2rem, calc(1rem + 1vw), 2.2rem) !important;
     margin-bottom: clamp(0.5rem, 2vw, 1rem);
     color: var(--light);
     text-align: left;
@@ -185,7 +186,7 @@ h3 {
 }
 
 p {
-    font-size: clamp(1rem, calc(0.5vw + 1rem), 2rem);
+    font-size: clamp(1rem, calc(0.8rem + 1vw), 1.8rem) !important;
     line-height: clamp(1.4, 2vw, 1.6);
     color: var(--light);
     text-align: left;
@@ -294,20 +295,27 @@ p {
 }
 
 #section3 {
-    align-items: flex-end;
+    align-items: center;
     padding-bottom: clamp(4rem, 15vh, 8rem);
-    scroll-snap-align: end;
+    scroll-snap-align: center;
+    position: relative;
 }
 
 #section4 {
-    align-items: center;
+    display: flex;
+    justify-content: flex-start; /* Align everything to the left */
+    align-items: flex-start;
+    padding-left: 15%; /* Adds 20% space from the left side of the screen */
+    padding-right: 15%; /* Adds 20% space from the right side of the screen */
+    width: 100%;
+    min-height: 85vh; /* Maintain the section height */
     scroll-snap-align: center;
 }
 
 /* Glass container styles */
 .glass-container {
     width: 100%;
-    width: clamp(17.5rem, calc(80vw - 2rem), min(90vw, 75rem));
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -413,13 +421,15 @@ p {
 
 /* Update submit button to use new styles */
 form {
-    width: 90%;
-    max-width: clamp(280px, 85%, 420px);
-    margin: min(50px, 10%) auto;
+    width: 100%;
+    max-width: clamp(1.5rem, calc(5rem + 15vw), 50rem);
+    min-width: 300px;
+    margin: min(50px, 10%) 0; /* Remove auto margin to let form align left */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align form content to the left */
     padding: 0 clamp(0.5rem, 2vw, 1rem);
+    
 }
 
 .submit-btn {
@@ -450,8 +460,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 0 auto !important;
+    align-items: flex-start; /* Align content to the left */
     scroll-snap-align: center !important;
 }
 
@@ -543,11 +552,27 @@ footer {
 /* About section specific styles */
 .about-columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr)) !important;
+    gap: clamp(2rem, 5vw, 10rem); /* Adjust gap to be responsive */
     width: 100%;
     margin-top: clamp(2rem, 4vh, 3rem);
+    padding: 1.5rem;
 }
+
+/* For large screens, ensure 3 columns on the same row */
+@media (min-width: 1024px) {
+    .about-columns {
+        grid-template-columns: repeat(3, minmax(20vw, 1fr)) !important;
+    }
+}
+
+/* For small screens, stack to 1 column */
+@media (max-width: 1024px) {
+    .about-columns {
+        grid-template-columns: 1fr !important; /* 1 column */
+    }
+}
+
 
 .about-column {
     display: flex;
@@ -596,17 +621,24 @@ footer {
 }
 
 .about-column h3 {
-    font-size: clamp(1.1rem, 1.5vw, 1.8rem);
     color: var(--accent);
     margin-bottom: clamp(0.8rem, 1.5vh, 1.2rem);
     text-shadow: var(--text-shadow);
 }
 
 .about-column p {
-    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     line-height: 1.6;
     color: var(--light);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     margin: 0;
     width: 100%;
+}
+
+form h2 {
+    text-align: center; /* Center the text horizontally */
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem); /* Responsive text size */
+    margin-bottom: 2rem; /* Space between heading and form */
+    width: 100%; /* Ensure it takes full width */
+    display: flex;
+    justify-content: center; /* Ensure the heading text is centered */
 }
