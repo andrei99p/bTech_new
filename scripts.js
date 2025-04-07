@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.remove('hidden');
             } else {
                 button.classList.add('hidden');
-            }
+            }          
         });
     
         // Update dot nav buttons and handle section name visibility

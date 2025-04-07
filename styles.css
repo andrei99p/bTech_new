@@ -76,8 +76,8 @@ body{
     }
     .section-name{
         color:var(--light);
-        font-size:clamp(.8rem,1.2vw,1rem);
-        margin-right:.75rem;
+        font-size:clamp(.8rem,1.2vw,1.5rem);
+        margin-right:1rem;
         opacity:0;
         transform:translateX(10px);
         transition:all .3s ease;
@@ -97,8 +97,8 @@ body{
     }
     
     .dot-nav-btn{
-        width:clamp(.5rem,1vw,.75rem);
-        height:clamp(.5rem,1vw,.75rem);
+        width:clamp(.5rem,1vw,1rem);
+        height:clamp(.5rem,1vw,1rem);
         border-radius:50%;
         background-color:var(--light);
         border:none;
@@ -110,9 +110,12 @@ body{
         position:relative;
         z-index:1
     }
+    
     .dot-nav-btn.active{
         background-color:var(--accent)!important;
+        transform:scale(1.3)
     }
+
     .dot-nav-btn:hover{
         transform:scale(1.3)
     }
@@ -236,7 +239,7 @@ body{
         scroll-snap-align:center
     }
     .glass-container{
-        width:100%;
+        width:95%;
         display:flex;
         justify-content:center;
         align-items:center;
@@ -317,11 +320,6 @@ body{
         border-color:var(--primary);
         padding:clamp(2rem,4vw,3rem)
     }
-    #section4 .wrapper{
-        border-color:var(--secondary);
-        height:auto;
-        min-height:clamp(300px,60vh,450px)
-    }
     form{
         width:100%;
         max-width:clamp(1.5rem,calc(5rem + 15vw),50rem);
@@ -330,12 +328,12 @@ body{
         display:flex;
         flex-direction:column;
         align-items:flex-start;
-        padding:0 clamp(.5rem,2vw,1rem)
+        padding:0 clamp(.5rem,2vw,1rem);
     }
     .submit-btn{
         height:clamp(2rem,5vw,2.5rem);
-        font-size:clamp(.8rem,2vw,1.2rem);
-        line-height:clamp(2.1rem,5vw,2.7rem);
+        font-size:clamp(.8rem,2vw,1.5rem);
+        line-height:clamp(1.2rem,2rem,2.7rem);
         padding:0 clamp(.8rem,3vw,1rem);
         border:0;
         border-radius:3rem;
@@ -343,7 +341,7 @@ body{
         background-size:300% 100%;
         transition:all .3s ease-in-out;
         margin:1rem auto 0 auto;
-        font-weight:700;
+        font-weight:500;
         color:var(--light);
         cursor:pointer;
         display:block
@@ -359,7 +357,7 @@ body{
         flex-direction:column;
         justify-content:center;
         align-items:flex-start;
-        scroll-snap-align:center!important
+        scroll-snap-align:center!important;
     }
     .feedback-input{
         color:#fff;
@@ -373,11 +371,9 @@ body{
         width:100%;
         box-sizing:border-box;
         outline:0;
-        font-size:clamp(.9rem,2vw,1rem)
+        font-size:clamp(.9rem,2vw,1.5rem)
     }
-    textarea{
-        min-height:12rem
-    }
+
     .feedback-input:invalid,.feedback-input:valid:not(:placeholder-shown){
         background-size:20px;
         background-repeat:no-repeat;
@@ -479,14 +475,14 @@ body{
         transform:translateY(-5px);
         box-shadow:var(--shadow-lg),0 8px 20px rgba(0,0,0,.2)
     }
-    .about-column>*{p
-        osition:relative;
+    .about-column>*{
+        position:relative;
         z-index:1
     }
     .column-img{
         width:clamp(100px,15vw,150px);
         height:auto;
-        margin-bottom:clamp(1rem,2vh,1.5rem)
+        margin-bottom:clamp(1rem,2vh,1.5rem);
         filter:drop-shadow(var(--shadow-md))
     }
     .about-column h3{
@@ -501,6 +497,11 @@ body{
         margin:0;
         width:100%
     }
+
+    textarea{
+        min-height:12rem
+    }
+
     form h2{
         text-align:center;
         font-size:clamp(1.5rem,2.5vw,2.5rem);
@@ -508,4 +509,7 @@ body{
         width:100%;
         display:flex;
         justify-content:center
+    }
+    form input, textarea{
+        height:5vh;
     }
