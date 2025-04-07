@@ -43,24 +43,32 @@ document.addEventListener('DOMContentLoaded', function() {
         const navbarHeight = navbar.offsetHeight;
         const viewportHeight = window.innerHeight;
         let current = '';
-        
+    
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
             // Use a percentage of viewport height for threshold
             const threshold = getResponsiveValue(0.1, 0.25, 0.5) * viewportHeight;
-            
+    
             if (window.scrollY >= (sectionTop - navbarHeight - threshold)) {
                 current = section.getAttribute('id');
             }
         });
-        
+    
         // Update regular nav buttons
         document.querySelectorAll('.nav-btn').forEach(button => {
             button.classList.remove('active');
             if (button.getAttribute('data-section') === current) {
                 button.classList.add('active');
+                // Apply the accent color (for example, using a CSS variable --accent-color)
+                button.style.backgroundColor = 'var(--accent-color)'; // Replace with your accent color
+                button.style.color = '#fff'; // Assuming the text should be white when the button is active
+            } else {
+                // Reset the background and text color for inactive buttons
+                button.style.backgroundColor = ''; // Reset to default
+                button.style.color = ''; // Reset to default
             }
+    
             // Hide nav buttons when not on first section
             if (current === 'section1') {
                 button.classList.remove('hidden');
@@ -68,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.add('hidden');
             }
         });
-        
+    
         // Update dot nav buttons and handle section name visibility
         document.querySelectorAll('.dot-nav-btn').forEach(button => {
             button.classList.remove('active');
@@ -80,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     sectionName.style.opacity = '1';
                     sectionName.style.transform = 'translateX(0)';
                     sectionName.style.visibility = 'visible';
-                    
+    
                     // Hide section name after 1 second
                     setTimeout(() => {
                         sectionName.style.opacity = '0';
@@ -90,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        
+    
         // Toggle visibility of dot navbar based on current section
         const dotNavbar = document.querySelector('.dot-navbar');
         if (dotNavbar) {
@@ -101,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    
     
     // Initial call to set active state correctly on page load
     updateActiveSection();
