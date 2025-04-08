@@ -105,17 +105,22 @@
         </div>
 
         <section id="section4" class="block">
-                    <form action="https://api.web3forms.com/submit" method="POST"> 
-                        <h2><span class="accent">Let's</span>&nbsptalk business</h2>
-                        <input type="hidden" name="access_key" value="aa661a66-d337-4247-b2ec-39b5a690dd07">
-    
-                        <input name="name" type="text" class="feedback-input" placeholder="Name" required/>   
-                        <input name="email" type="email" class="feedback-input" placeholder="Email" required/>
-                        <input name="tel" type="tel" class="feedback-input" placeholder="Phone" pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
-                        <textarea name="text" class="feedback-input" placeholder="Message" maxlength="300" required></textarea>
-                        <input type="text" name="honeypot" style="display:none">
-                        <button type="submit" class="submit-btn"> &nbsp;&nbsp;Send&nbsp;&nbsp;</button>
-                    </form>
+            <div class="contact-container">
+                <form action="https://api.web3forms.com/submit" method="POST"> 
+                    <h2><span class="accent">Let's</span>&nbsptalk business</h2>
+                    <input type="hidden" name="access_key" value="aa661a66-d337-4247-b2ec-39b5a690dd07">
+
+                    <input name="name" type="text" class="feedback-input" placeholder="Name" required/>   
+                    <input name="email" type="email" class="feedback-input" placeholder="Email" required/>
+                    <input name="tel" type="tel" class="feedback-input" placeholder="Phone" pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
+                    <textarea name="text" class="feedback-input" placeholder="Message" maxlength="300" required></textarea>
+                    <input type="text" name="honeypot" style="display:none">
+                    <button type="submit" class="submit-btn"> &nbsp;&nbsp;Send&nbsp;&nbsp;</button>
+                </form>
+                <div class="contact-image">
+                    <img src="res/contact.png" alt="Contact illustration" class="contact-img">
+                </div>
+            </div>
         </section>
     </main>
 
