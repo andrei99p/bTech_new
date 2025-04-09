@@ -23,11 +23,13 @@ html{
     --transition-default:0.3s ease;
 }
 body{
-    background-image:url("res/design.svg");
+    /*background-image:url("res/design.svg");
     background-size:130%;
     background-position:center;
     background-attachment:fixed;
-    background-repeat:no-repeat;
+    background-repeat:no-repeat;*/
+    background: radial-gradient(circle, #243b55, #141e30 );
+
     min-height:100vh;
     color:var(--light)!important;
     padding-top:0
@@ -153,7 +155,7 @@ body{
         display:flex;
         align-items:center;
         flex-shrink:0;
-        margin-left:clamp(1rem,3vw,2rem)
+        margin-left:clamp(1rem,3vw,2rem);
     }
     .logo-btn{
         background:0 0;
@@ -206,23 +208,17 @@ body{
         padding-top:clamp(4rem,10vh,6rem);
         scroll-snap-align:start;
         min-height:100vh}
-    #section2{
-        align-items:center;
-        scroll-snap-align:center;
-        position:relative;
-        --background-position:50%}
-    #section2 .wrapper::before{
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        width:100%;
-        height:100%;
-        background-position:center var(--background-position);
-        z-index:-1;
-        border-radius:16px
-    }
-    #section3{
+
+        #section2 .about-columns{
+            display: grid; /* Use grid layout */
+            grid-template-columns: 1fr !important; /* Single column layout */
+            justify-items: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Full width */
+        }
+        
+
+    #section2, #section3{
         align-items:center;
         padding-bottom:clamp(4rem,15vh,8rem);
         scroll-snap-align:center;
@@ -247,40 +243,7 @@ body{
         overflow:hidden;
         z-index:1
     }
-    .wrapper{
-        padding:2rem;
-        display:flex;
-        flex-direction:column;
-        gap:3rem;
-        width:clamp(17.5rem,calc(80vw - 2rem),min(90vw,75rem));
-        min-height:clamp(250px,40vh,400px);
-        background:rgba(255,255,255,0);
-        border-radius:16px;
-        box-shadow:var(--shadow-lg);
-        position:relative;
-        overflow-y:auto;
-        transition:transform .3s ease,box-shadow .3s ease;
-        height:auto
-    }
-    .wrapper:before{
-        content:'';
-        position:absolute;
-        background:inherit;
-        width:calc(100% + 50px);
-        height:calc(100% + 50px);
-        left:-25px;
-        top:-25px;
-        box-shadow:inset 0 0 0 3000px rgba(255,255,255,.03);
-        filter:blur(10px);
-        backdrop-filter:blur(10px);
-        border-radius:16px;
-        z-index:-1
-    }
-    .wrapper>*{
-        position:relative;
-        z-index:1;
-        text-shadow:var(--text-shadow)
-    }
+    
     .description-blocks{
         display:flex;
         flex-direction:column;
@@ -310,16 +273,7 @@ body{
         color:var(--accent)!important;
         text-shadow:inherit!important
     }
-    #section1 .wrapper{
-        border-color:var(--secondary)
-    }
-    #section2 .wrapper{
-        border-color:var(--primary)
-    }
-    #section3 .wrapper{
-        border-color:var(--primary);
-        padding:clamp(2rem,4vw,3rem)
-    }
+
     form{
         width:100%;
         max-width:clamp(1.5rem,calc(5rem + 15vw),50rem);
@@ -385,34 +339,7 @@ body{
     .feedback-input:not(:focus-within):valid:not(:placeholder-shown){
         background-image:url("res/check-success.png")
     }
-    footer{
-        background-color:var(--primary);
-        color:var(--light);
-        padding:clamp(.5rem,2vw,1rem) clamp(1rem,5%,3rem);
-        text-align:center;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        min-height:60px;
-        width:100%
-    }
-    .footer-content{
-        width:100%;
-        max-width:1200px;
-        margin:0 auto;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        text-align:center
-    }
-    .footer-content p{
-        margin:0;
-        padding:0;
-        text-align:center;
-        width:100%;
-        font-size:clamp(.8rem,1vw,1.2rem);
-        line-height:1.4
-    }
+
     #scroll-arrow{
         position:fixed;
         bottom:20px;
@@ -519,32 +446,23 @@ body{
         grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
         align-items: start; /* Align items to the start of the grid */
         width: 100%;
-        max-width: 1200px;
         margin: 0 auto;
         gap: 2rem; /* Space between columns */
-    }
-
-    .form-column {
-        grid-column: 1; /* Place form in the first column */
-    }
-
-    .empty-column {
-        grid-column: 2; /* Empty column for spacing */
     }
 
     .contact-image {
         grid-column: 3; /* Place image in the third column */
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-end; /* Changed from center to flex-end to align at the bottom */
-        height: 100%; /* Ensure the container takes full height */
+        justify-content: flex-end; /* Align content to the right */
+        align-items: flex-end; /* Align content to the bottom */
+        height: 100%; /* Make the image container take full height */
+        position: relative;
     }
 
     .contact-img {
-        max-width: 20vh; /* Make image responsive */
-        min-width: 100%;
+        max-width: 35vw;
         height: auto;
-        max-height: 100vh;
+        max-height: 50vh;
         object-fit: contain;
         margin-bottom: 0; /* Ensure no margin at the bottom */
     }
@@ -581,4 +499,51 @@ body{
         }
     }
 
-
+    footer{
+        background-color:var(--primary);
+        color:var(--light);
+        text-align:center;
+        display:flex;
+        justify-content:center;
+        min-height:60px;
+        height: 7vh;
+        width:100%;
+    }
+    .footer-content{
+        width:100%;
+        margin: 0;
+        display:flex;
+        align-items:center;
+        text-align:left;
+        padding: 0 1rem;
+    }
+    .footer-content p{
+        margin:0;
+        padding:0;
+        text-align:justify;
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: clamp(0.6rem, 0.8vw, 2.6rem) !important;
+        line-height:1.4
+    }
+    
+    .footer-icons{
+        display:flex;
+        align-items:center;
+        flex-shrink:0;
+        margin-left:clamp(1rem,3vw,2rem);
+        gap:1.5rem;
+        margin-right: 2rem;
+    }
+    .footer-btn{
+        background:transparent;
+        border:none;
+        padding:0;
+        cursor:pointer;
+    }
+    .footer-icons img{
+        height:clamp(1rem, 1vw, 2.6rem) !important;
+        width:auto;
+        filter:drop-shadow(var(--shadow-sm));
+        margin-left:0}
