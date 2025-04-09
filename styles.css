@@ -207,15 +207,42 @@ body{
         justify-content:center;
         padding-top:clamp(4rem,10vh,6rem);
         scroll-snap-align:start;
-        min-height:100vh}
+        min-height:100vh;
+    }
 
-        #section2 .about-columns{
-            display: grid; /* Use grid layout */
-            grid-template-columns: 1fr !important; /* Single column layout */
-            justify-items: center; /* Center items horizontally */
-            align-items: center; /* Center items vertically */
-            width: 100%; /* Full width */
-        }
+    #section2 .about-columns{
+        display: grid; /* Use grid layout */
+        grid-template-columns: 1fr !important; /* Single column layout */
+        justify-items: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        width: 100%; /* Full width */
+    }
+
+    #section2 {
+        position: relative; /* Ensure positioning context for absolute children */
+        overflow: hidden; /* Hide overflow to clip the image */
+    }
+    
+    #section2 .about-column {
+        position: relative; /* Ensure positioning context for the background image */
+        z-index: 1; /* Ensure it sits above the background image */
+        overflow: hidden;
+    }
+    
+    #section2 .about-column::before {
+        content: '';
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('res/work.png');
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the image */
+        z-index: -1; /* Place it behind the content */
+        transform: translateY(0); /* Initial position */
+        transition: transform 0.1s ease-out; 
+    }
         
 
     #section2, #section3{
@@ -547,3 +574,4 @@ body{
         width:auto;
         filter:drop-shadow(var(--shadow-sm));
         margin-left:0}
+
