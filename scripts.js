@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add active class to current section's nav button
-    const sections = document.querySelectorAll('.section, .block');
+    const sections = document.querySelectorAll('.section');
     
     function updateActiveSection() {
         const navbarHeight = navbar.offsetHeight;
