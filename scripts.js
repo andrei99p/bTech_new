@@ -225,8 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', function() {
             if (!ticking) {
                 window.requestAnimationFrame(function() {
-                    const scrolled = window.pageYOffset;
-                    const section2Top = section2.getBoundingClientRect().top + window.pageYOffset;
+                    const scrolled = window.scrollY;
+                    const section2Top = section2.getBoundingClientRect().top + window.scrollY;
                     const section2Height = section2.offsetHeight;
                     const viewportHeight = window.innerHeight;
                     
@@ -277,6 +277,5 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', updateScrollArrowVisibility);
     }
 
+
 });
-
-
