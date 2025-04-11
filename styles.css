@@ -23,11 +23,6 @@ html{
     --transition-default:0.3s ease;
 }
 body{
-    /*background-image:url("res/design.svg");
-    background-size:130%;
-    background-position:center;
-    background-attachment:fixed;
-    background-repeat:no-repeat;*/
     background: radial-gradient(circle,#414345, #232526);
 
     min-height:100vh;
@@ -434,12 +429,6 @@ body{
         position:relative;
         z-index:1
     }
-    .column-img{
-        width:clamp(100px,15vw,150px);
-        height:auto;
-        margin-bottom:clamp(1rem,2vh,1.5rem);
-        filter:drop-shadow(var(--shadow-md))
-    }
     .about-column h3{
         color:var(--accent);
         margin-bottom:clamp(.8rem,1.5vh,1.2rem);
@@ -578,23 +567,27 @@ body{
 
         .parallax-background {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 99%;
             height: 99%;
-            background-image: url('res/work.png');
             background-size: cover;
+            background-repeat: no-repeat;
             background-position: center;
             background-attachment: fixed;
             z-index: -1; /* stays behind everything */
             pointer-events: none; /* avoids any accidental interaction */
             border-radius: 20px;
+            transition: transform 0.2s ease-out;
+        }
+
+        .parallax-background.about{
+            background-image: url('res/work.png');
         }
 
         .about-column-wrapper {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 100% !important;
+            height:min-content;
             overflow: hidden;
             border-radius: 16px;
             box-shadow:var(--shadow-lg);
@@ -605,6 +598,28 @@ body{
             box-shadow:var(--shadow-lg),0 8px 20px rgba(0,0,0,.2)
         }
         
+        .parallax-img {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            border-radius: 20px;
+            height: 99%;
+            width: 99%;
+        }
+        
+        .parallax-img img {
+            width: 80%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) translateY(var(--scroll-offset, 0px));
+            transition: transform 0.1s linear;
+            will-change: transform;
+        }
+
         input::placeholder,
 textarea::placeholder {
     color: var(--light); /* Change to any color you prefer */

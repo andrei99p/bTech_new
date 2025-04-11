@@ -277,5 +277,22 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', updateScrollArrowVisibility);
     }
 
+    window.addEventListener('scroll', () => {
+        const speed = 5; // smaller = slower movement (experiment!)
+    
+        document.querySelectorAll('.parallax-img').forEach(container => {
+          const img = container.querySelector('img');
+          const rect = container.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+    
+          // How far the element is from the center of the screen
+          const scrollProgress = (rect.top + rect.height / 2 - windowHeight / 2) / windowHeight;
+    
+          // Parallax effect: negative = move up when scrolling down
+          const offset = scrollProgress * 100 * speed;
+    
+          img.style.setProperty('--scroll-offset', `${offset}px`);
+        });
+      });
 
 });
