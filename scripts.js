@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
           const scrollProgress = (rect.top + rect.height / 2 - windowHeight / 2) / windowHeight;
     
           // Parallax effect: negative = move up when scrolling down
-          const offset = scrollProgress * 100 * speed;
+          const offset = scrollProgress * 20 * speed;
     
           img.style.setProperty('--scroll-offset', `${offset}px`);
         });
