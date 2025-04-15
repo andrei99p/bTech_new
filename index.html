@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="b-Tech turns innovative ideas into powerful software solutions. From consultation to delivery, we're your tech partner.">
-    <meta name="keywords" content="b-Tech, software development, web apps, tech consulting, custom software">
+    <meta name="description" content="BOBER TECHNOLOGIES turns innovative ideas into powerful software solutions. From consultation to delivery, we're your tech partner.">
+    <meta name="keywords" content="BOBER TECHNOLOGIES, software development, web apps, tech consulting, custom software">
     <meta name="author" content="BOBER TECHNOLOGIES S.R.L.-D.">
 
-    <title>b-Tech</title>
+    <title>BOBER TECHNOLOGIES</title>
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -16,21 +17,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <script src="scripts.js" defer></script>
+    <script src="scripts.js"></script>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo">
                 <button class="logo-btn" data-section="section1">
-                    <img draggable="false" src="res/Logo_noText_png.png" alt="b-Tech Logo">
+                    <img loading="lazy" draggable="false" src="res/Logo_noText_png.png" alt="b-Tech Logo">
                 </button>
             </div>
             <div class="nav-links">
-                <button class="nav-btn" role="navigation" data-section="section2">About</button>
-                <button class="nav-btn" role="navigation" data-section="section3">Services</button>
-                <button class="nav-btn" role="navigation" data-section="section4">Development</button>
-                <button class="nav-btn" role="navigation" data-section="section5">Contact</button>
+                <button class="nav-btn" role="navigation" data-section="section2" data-en="About" data-ro="Despre"></button>
+                <button class="nav-btn" role="navigation" data-section="section3" data-en="Services" data-ro="Servicii"></button>
+                <button class="nav-btn" role="navigation" data-section="section4" data-en="Development" data-ro="Dezvoltare"></button>
+                <button class="nav-btn" role="navigation" data-section="section5" >Contact</button>
             </div>
         </nav>
         
@@ -38,19 +39,19 @@
         <nav class="dot-navbar">
             <div class="dot-nav-links">
                 <div class="dot-nav-item">
-                    <span class="section-name">Home</span>
+                    <span class="section-name" data-en="Home" data-ro="Acasa"></span>
                     <button class="dot-nav-btn" role="navigation" data-section="section1" aria-label="Navigate to Home section"></button>
                 </div>
                 <div class="dot-nav-item">
-                    <span class="section-name">About</span>
+                    <span class="section-name" data-en="About" data-ro="Despre"></span>
                     <button class="dot-nav-btn" role="navigation" data-section="section2" aria-label="Navigate to About section"></button>
                 </div>
                 <div class="dot-nav-item">
-                    <span class="section-name">Services</span>
+                    <span class="section-name" data-en="Services" data-ro="Servicii"></span>
                     <button class="dot-nav-btn" role="navigation" data-section="section3" aria-label="Navigate to Services section"></button>
                 </div>
                 <div class="dot-nav-item">
-                    <span class="section-name">Development</span>
+                    <span class="section-name" data-en="Development" data-ro="Dezvoltare"></span>
                     <button class="dot-nav-btn" role="navigation" data-section="section4" aria-label="Navigate to Development section"></button>
                 </div>
                 <div class="dot-nav-item">
@@ -63,13 +64,20 @@
     
     <main>
         <section id="section1" class="section">
-            <h2 class="hero-title"><span class="accent">Your</span> ideas made real</h2>
+            <h2 class="hero-title"><span class="accent" data-en="Your" data-ro="Ideile tale"></span></h2>&nbsp;
+            <h2 data-en="ideas made real" data-ro="devenite realitate"></h2>
+            <button id="lang-toggle">
+                <img src="res/en.png" alt="Language flag" />
+              </button>
         </section>
 
         <section id="section2" class="section">
             <div class="glass-container">
                 <div class="about-columns">
-                    <h2><span class="accent">Who</span> we are</h2>
+                    <h2>
+                        <span class="accent" data-en="Who" data-ro="Cine"></span> 
+                        <span data-en="we are" data-ro="suntem"></span>
+                    </h2>
                     <div class="about-column-wrapper">
                         <div class="parallax-background about"></div>
 
@@ -77,11 +85,18 @@
                                 
                             <div class="description-blocks">
                                 <div></div>
-                                <h3 style="color:var(--light)" class="intro-block"><span class="accent">b-Tech</span> turns innovative ideas into powerful software solutions.</h3>
-                                
-                                <p class="main-block">We specialize in crafting custom applications that perfectly match your vision - from personal projects to enterprise systems.</p>
-                                
-                                <p class="closing-block">Our team combines deep technical knowledge with creative design to deliver exceptional results. We're here to help dreamers, entrepreneurs, and businesses bring their ideas to life through technology.</p>
+                                <h3 style="color:var(--light)" class="intro-block">
+                                    <span class="accent" data-en="BOBER TECHNOLOGIES" data-ro="BOBER TECHNOLOGIES"></span> 
+                                    <span data-en="turns innovative ideas into powerful software solutions." data-ro="transformă idei inovative în soluții software puternice."></span>
+                                  </h3>
+                                  
+                                  <p class="main-block" data-en="We specialize in crafting custom applications that perfectly match your vision - from personal projects to enterprise systems."
+                                     data-ro="Suntem specializați în crearea de aplicații personalizate care se potrivesc perfect viziunii tale - de la proiecte personale la sisteme de întreprindere.">
+                                  </p>
+                                  
+                                  <p class="closing-block" data-en="Our team combines advanced technical knowledge with creative design to deliver exceptional results. We're here to help dreamers, entrepreneurs, and businesses bring their ideas to life through technology."
+                                     data-ro="Echipa noastră combină cunoștințele tehnice avansate cu designul creativ pentru a livra rezultate excepționale. Suntem aici pentru a ajuta visătorii, antreprenorii și afacerile să-și aducă ideile la viață prin tehnologie.">
+                                  </p>
                             </div>
                         </div>
                     </div>
@@ -92,43 +107,92 @@
         <section id="section3" class="section">
             <div class="glass-container">
                 <div>
-                    <h2><span class="accent">Services</span></h2>
+                    <h2><span class="accent" data-en="Services" data-ro="Servicii"></span></h2>
                     <div class="about-columns">
                         <div>
-                            <h3><span>Software Development</span></h3>
+                            <h3>
+                                <span class="accent" data-en="Software Development" data-ro="Dezvoltare Software">
+                                    Software Development
+                                </span>
+                            </h3>
                             <div class="about-column">
                                 <ul>
-                                    <li><span>Custom</span> Software Solutions</li>
-                                    <li><span>Mobile</span> App Development</li>
-                                    <li><span>Web</span> Application Development</li>                                  
-                                    <li><span>Enterprise</span> Software Development</li>
+                                    <li>
+                                        <span class="accent" data-en="Custom" data-ro="Soluții"></span>
+                                        <span data-en="Software Solutions" data-ro="software personalizate"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Mobile" data-ro="Aplicații"></span>
+                                        <span data-en="App Development" data-ro="mobile"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Web" data-ro="Aplicații"></span>
+                                        <span data-en="Application Development" data-ro="web"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Enterprise" data-ro="Software"></span>
+                                        <span data-en="Software Development" data-ro="pentru întreprinderi"></span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                             
                         <div>
-                            <h3><span>Consultancy</span></h3>
-                            <div class="about-column">                             
+                            <h3>
+                                <span class="accent" data-en="Consultancy" data-ro="Consultanță"></span>
+                            </h3>
+                            <div class="about-column">
                                 <ul>
-                                    <li><span>IT Strategy</span> Consulting</li>
-                                    <li><span>Business </span>Process Optimization</li>
-                                    <li><span>Data </span>Analytics & Business Intelligence</li>
-                                    <li><span>Software </span>Architecture & Design Consulting</li>
+                                    <li>
+                                        <span class="accent" data-en="IT" data-ro="Strategii"></span>
+                                        <span data-en="Strategy" data-ro="IT"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Business" data-ro="Optimizare"></span>
+                                        <span data-en="Process Optimization" data-ro="Procese de afaceri"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Data" data-ro="Analiza"></span>
+                                        <span data-en="Analytics" data-ro="Datelor"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Business" data-ro="Business"></span>
+                                        <span data-en="Intelligence" data-ro="Intelligence"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Software" data-ro="Arhitectură "></span>
+                                        <span data-en="Architecture & Design" data-ro="Software și Design"></span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
+                        
                             
                         <div>
-                            <h3><span>Other</span></h3>
+                            <h3>
+                                <span class="accent" data-en="Other" data-ro="Altele"></span>
+                            </h3>
                             <div class="about-column">                             
                                 <ul>
-                                    <li><span>UI/UX</span> Design</li>
-                                    <li><span>Technical</span> Support & Troubleshooting</li>
-                                    <li><span>Database</span> Management & Optimization</li>
+                                    <li>
+                                        <span class="accent" data-en="UI/UX" data-ro="UI/UX"></span>
+                                        <span data-en="Design" data-ro="Design"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Technical" data-ro="Asistență"></span>
+                                        <span data-en="Support & Troubleshooting" data-ro="Tehnică și Depanare"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Database" data-ro="Gestionare"></span>
+                                        <span data-en="Management" data-ro="Baze de date"></span>
+                                    </li>
+                                    <li>
+                                        <span class="accent" data-en="Database" data-ro="Optimizare"></span>
+                                        <span data-en="Optimization" data-ro="Baze de date"></span>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                            
+                        </div>                          
                     </div>
                 </div>
             </div>
@@ -137,55 +201,78 @@
         <section id="section4" class="section">
             <div class="glass-container">
                 <div>
-                    <h2><span>Development</span> jorney</h2>
-
+                    <h2>
+                        <span class="accent" data-en="Development" data-ro="Dezvoltarea"></span>
+                        <span data-en="journey" data-ro="proiectului"></span>
+                    </h2>
+                
                     <div class="about-columns">
+                        <!-- Consultations -->
                         <div>
-                            <h3><span>Consultations</span></h3>
+                            <h3>
+                                <span class="accent" data-en="Consultations" data-ro="Consultări"></span>
+                            </h3>
                             <div class="about-column-wrapper">
-                                <div class="parallax-img" >
-                                    <img src="res/consultation.png" alt="Consultation background" />
+                                <div class="parallax-img">
+                                    <img loading="lazy" src="res/consultation.png" alt="Consultation background" />
                                 </div>
-                            <div class="about-column">           
-                                <p>The journey to great software starts with understanding your story. We explore your vision and needs, carefully crafting a solution that brings real value to your business while keeping innovation at heart.</p>
+                                <div class="about-column">
+                                    <p data-en="The journey to great software starts with understanding your story. We explore your vision and needs, carefully crafting a solution that brings value to your business while keeping innovation at heart." 
+                                       data-ro="Drumul către un software excelent începe prin înțelegerea poveștii tale. Explorăm viziunea și nevoile tale, creând cu grijă o soluție care aduce valoare afacerii tale și păstrează inovația în prim-plan.">
+                                    </p>
+                                </div>
                             </div>
                         </div>
+                
+                        <!-- Development Process -->
+                        <div>
+                            <h3>
+                                <span class="accent" data-en="Development Process" data-ro="Procesul de dezvoltare"></span>
+                            </h3>
+                            <div class="about-column-wrapper">
+                                <div class="parallax-img">
+                                    <img loading="lazy" src="res/development.png" alt="Development background" style="margin-top: 75px;" />
+                                </div>
+                                <div class="about-column">
+                                    <p data-en="Throughout the development phase, we maintain regular communication to ensure the product aligns with your expectations. We value your feedback and make adjustments as needed."
+                                       data-ro="Pe tot parcursul fazei de dezvoltare, menținem o comunicare constantă pentru a ne asigura că produsul corespunde așteptărilor tale. Apreciem feedback-ul tău și facem ajustările necesare.">
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        
-                            <div>
-                                <h3><span>Development Process</span></h3>
-                                <div class="about-column-wrapper">
-                                    <div class="parallax-img" >
-                                        <img src="res/development.png" alt="Development background"/>
-                                    </div>
-                                    <div class="about-column">
-                                        <p>Throughout the development phase, we maintain regular communication to ensure the product aligns with your expectations. We value your feedback and make adjustments as needed.</p>
-                                    </div>
+                
+                        <!-- Delivery & Support -->
+                        <div>
+                            <h3>
+                                <span class="accent" data-en="Delivery & Support" data-ro="Livrare & Suport"></span>
+                            </h3>
+                            <div class="about-column-wrapper">
+                                <div class="parallax-img">
+                                    <img loading="lazy" src="res/support.png" alt="Support background" />
+                                </div>
+                                <div class="about-column">
+                                    <p data-en="After delivering your product, we provide comprehensive support to ensure smooth implementation and continued success. We're here to help you every step of the way."
+                                       data-ro="După livrarea produsului, oferim suport complet pentru a asigura o implementare lină și un succes continuu. Suntem aici să te sprijinim la fiecare pas.">
+                                    </p>
                                 </div>
                             </div>
-
-                            <div>
-                                <h3><span>Delivery & Support</span></h3>
-                                <div class="about-column-wrapper">
-                                    <div class="parallax-img">
-                                        <img src="res/support.png" alt="Development background"/>
-                                    </div>
-                                    <div class="about-column">
-                                        <p>After delivering your product, we provide comprehensive support to ensure smooth implementation and continued success. 
-                                            We're here to help you every step of the way.</p>                                          
-                                    </div>
-                                </div>
-                            </div>
-                      
+                        </div>
                     </div>
-                </div>
+                </div
+                
             </div>
         </section>
 
         <section id="section5" class="section">
             <div class="contact-container">
                 <form action="https://api.web3forms.com/submit" method="POST"> 
-                    <h2><span class="accent">Let's</span>&nbsptalk business</h2>
+                    <h2>
+                        <span>
+                          <span class="accent" data-en="Let's" data-ro="Hai să"></span>
+                          <span data-en="talk business" data-ro="vorbim despre afaceri"></span>
+                        </span>
+                      </h2>
+                    
                     <input type="hidden" name="access_key" value="aa661a66-d337-4247-b2ec-39b5a690dd07">
 
                     <input name="name" type="text" class="feedback-input" placeholder="Name" required/>   
@@ -193,10 +280,10 @@
                     <input name="tel" type="tel" class="feedback-input" placeholder="Phone" pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
                     <textarea name="text" class="feedback-input" placeholder="Message" maxlength="300" required></textarea>
                     <input type="text" name="honeypot" style="display:none">
-                    <button type="submit" class="submit-btn"> &nbsp;&nbsp;Send&nbsp;&nbsp;</button>
+                    <button type="submit" class="submit-btn"><span style="font-size: 1.2rem;" data-en="Send" data-ro="Trimite"></span></button>
                 </form>
                 <div class="contact-image">
-                    <img src="res/contact.png" alt="Contact illustration" class="contact-img">
+                    <img loading="lazy" src="res/contact.png" alt="Contact illustration" class="contact-img">
                 </div>
             </div>
         </section>
@@ -216,18 +303,17 @@
             </div>
             <div class="footer-icons">
                 <button class="footer-btn">
-                    <img src="res/icons/linkedin.png" alt="LinkedIn">
+                    <img loading="lazy" src="res/icons/linkedin.png" alt="LinkedIn">
                 </button>
                 <button class="footer-btn">
-                    <img src="res/icons/facebook.png" alt="Facebook">
+                    <img loading="lazy" src="res/icons/facebook.png" alt="Facebook">
                 </button>
                 <button class="footer-btn">
-                    <img src="res/icons/instagram.png" alt="instagram">
+                    <img loading="lazy" src="res/icons/instagram.png" alt="instagram">
                 </button>
                 <button class="footer-btn">
-                    <img src="res/icons/twitter.png" alt="X">
+                    <img loading="lazy" src="res/icons/twitter.png" alt="X">
                 </button>
-                <!-- Add more icons as needed -->
             </div>
         </div>
     </footer>

@@ -74,7 +74,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.classList.remove('hidden');
             } else {
                 button.classList.add('hidden');
-            }          
+            }        
+            
+            const langButton = document.querySelector('.language-btn');
+
+if (langButton) {
+    if (current === 'section1') {
+        langButton.classList.remove('hidden');
+        langButton.setAttribute('aria-hidden', 'false');
+    } else {
+        langButton.classList.add('hidden');
+        langButton.setAttribute('aria-hidden', 'true');
+    }
+}
         });
     
         // Update dot nav buttons and handle section name visibility
@@ -293,6 +305,64 @@ document.addEventListener('DOMContentLoaded', function() {
     
           img.style.setProperty('--scroll-offset', `${offset}px`);
         });
+      });
+
+      const langToggle = document.getElementById('lang-toggle');
+const flagImg = langToggle.querySelector('img');
+let currentLang = 'en';
+
+// Function to update all elements with data-lang attributes
+function updateLanguage(lang) {
+  document.documentElement.lang = lang;
+  currentLang = lang;
+  
+  // Update text content of elements based on data-lang
+  document.querySelectorAll('[data-en], [data-ro]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`);
+  });
+  
+  // Update the flag based on language
+  flagImg.src = lang === 'en' ? 'res/en.png' : 'res/ro.png';
+  flagImg.alt = lang === 'en' ? 'English flag' : 'Romanian flag';
+}
+
+// Language toggle button
+langToggle.addEventListener('click', () => {
+  const newLang = currentLang === 'en' ? 'ro' : 'en';
+  updateLanguage(newLang);
+});
+
+// GeoIP-based language detection
+fetch('https://ipapi.co/json')
+  .then(response => response.json())
+  .then(data => {
+    if (data.country_code === 'RO') {
+      updateLanguage('ro');
+    } else {
+      updateLanguage('en');
+    }
+  })
+  .catch(() => {
+    // fallback to English if geolocation fails
+    updateLanguage('en');
+  });
+
+
+      let lastScrollY = window.scrollY;
+      const toggleButton = document.getElementById('lang-toggle');
+      
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+      
+        if (currentScrollY - lastScrollY > 10) {
+          // Scrolling down → hide
+          toggleButton.classList.add('hidden');
+        } else if (lastScrollY - currentScrollY > 10) {
+          // Scrolling up → show
+          toggleButton.classList.remove('hidden');
+        }
+      
+        lastScrollY = currentScrollY;
       });
 
 });
