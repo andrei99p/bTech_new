@@ -2,7 +2,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Josefin Sans", sans-serif !important;
 }
 html{
     scroll-behavior:smooth;
@@ -13,7 +13,7 @@ html{
     --secondary:#14213D;
     --tertiary:#E5E5E5;
     --accent:#f35d17;
-    --light:#FFFFFF;
+    --light:#ffffff;
     --dark:#181f24;
     --shadow-sm:0 2px 4px rgba(0, 0, 0, 0.3);
     --shadow-md:0 4px 6px rgba(0, 0, 0, 0.2);
@@ -21,14 +21,34 @@ html{
     --text-shadow:0 2px 4px rgba(0, 0, 0, 0.3);
     --transition-fast:0.2s ease;
     --transition-default:0.3s ease;
+
+    --bg-light: radial-gradient(circle,#ece9e6, #ffffff);
+    --bg-dark: radial-gradient(circle,#414345, #232526);
+    --text-primary: var(--dark);
+    --text-inverse: var(--light);
 }
 body{
-    background: radial-gradient(circle,#414345, #232526);
+    background: var(--bg-light);
+    min-height: 100vh;
+    color: var(--dark) !important;
+    padding-top: 0;
+}
 
-    min-height:100vh;
-    color:var(--light)!important;
-    padding-top:0
-}.navbar{
+body.dark-mode {
+    background: var(--bg-dark);
+    color: var(--light) !important;
+    --text-primary: var(--light);
+    --text-inverse: var(--dark);
+}
+
+body.light-mode {
+    background: var(--bg-light);
+    color: var(--dark) !important;
+    --text-primary: var(--dark);
+    --text-inverse: var(--light);
+}
+
+.navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -72,7 +92,7 @@ body{
         padding:.5rem
     }
     .section-name{
-        color:var(--light);
+        color:var(--text-primary) !important;
         font-size:clamp(.8rem,1.2vw,10rem);
         margin-right:1rem;
         opacity:0;
@@ -97,7 +117,7 @@ body{
         width:clamp(.5rem,1vw,2rem);
         height:clamp(.5rem,1vw,2rem);
         border-radius:50%;
-        background-color:var(--light);
+        background-color:var(--text-primary);
         border:none;
         padding:.3rem;
         cursor:pointer;
@@ -119,13 +139,15 @@ body{
     h2{
         font-size:clamp(1.5rem,calc(1rem + 2vw),15rem)!important;
         margin-bottom:clamp(.5rem,2vw,1rem);
-        color:var(--light);text-align:center;
+        color:var(--text-primary);
+        text-align:center;
         text-shadow:var(--text-shadow);
     }
     h3{
         font-size:clamp(1.2rem,calc(1rem + 1vw),13.2rem)!important;
         margin-bottom:clamp(.5rem,2vw,1rem);
-        color:var(--light);
+        color:var(--text-primary) !important;
+        font-weight: bold !important;
         text-align:center;
         text-shadow:var(--text-shadow);
         max-width:90%;
@@ -135,7 +157,7 @@ body{
     }
     p{
         font-size:clamp(1rem,calc(.8rem + 1vw),5rem)!important;
-        color:var(--light);
+        color:var(--text-primary) !important;
         text-align:justify;
         text-shadow:0 1px 3px rgba(0,0,0,.4) !important;
         width:90%;
@@ -148,7 +170,7 @@ body{
 
     li{
         font-size:clamp(1rem,calc(0.5rem + 0.7vw),4rem)!important; /* Adjusted to fit on 1 row */
-        color:var(--light);
+        color:var(--text-primary) !important;
         text-align:left !important;
         text-shadow:0 1px 3px rgba(0,0,0,.4);
         width:100%;
@@ -157,7 +179,7 @@ body{
     }
 
     li::marker{
-        color: var(--light);
+        color: var(--text-primary);
     }
     .logo{
         display:flex;
@@ -185,7 +207,7 @@ body{
     .nav-btn{
         background:0 0;
         border:none;
-        color:var(--light)!important;
+        color:var(--text-primary) !important;
         font-size:clamp(.7rem,1vw,3rem);
         cursor:pointer;
         padding:clamp(.2rem,.8vw,.5rem) clamp(.3rem,1.5vw,1rem);
@@ -262,7 +284,7 @@ body{
 
     #section2, #section4{
         align-items:center;
-        padding-bottom:clamp(4rem,15vh,8rem);
+        padding-bottom:1vh;
         scroll-snap-align:center;
         position:relative
     }
@@ -284,7 +306,7 @@ body{
         position:relative;
         overflow:hidden;
         z-index:1;
-        padding-bottom: 5vh;
+        padding-bottom: 7vh;
     }
     
     .description-blocks{
@@ -305,7 +327,8 @@ body{
     .intro-block{
         font-size:clamp(1.2em,calc(1vw + 1em),1.4em);
         line-height:1.4;
-        width:100%
+        width:100%;
+        margin-bottom: 3rem !important;
     }
     .closing-block,.main-block{
         font-size:clamp(1em,calc(.5vw + 1em),1.1em);
@@ -324,12 +347,12 @@ body{
         padding:0 clamp(.5rem,2vw,1rem);
     }
     .submit-btn{
-        height:clamp(2rem,3vw,4rem);
-        font-size:clamp(.8rem,2vw,2rem);
+        height:clamp(2rem,max(2.5vw,2.5vh),7.5rem);
+        font-size:clamp(.8rem,1vw,4rem);
         line-height:clamp(1.2rem,2rem,2.7rem);
         padding:0 clamp(.8rem,3vw,1rem);
         border:0;
-        border-radius:3rem;
+        border-radius:5rem;
         background-image:linear-gradient(131deg,#ff923c,#c50,#c50,#c50);
         background-size:300% 100%;
         transition:all .3s ease-in-out;
@@ -345,7 +368,7 @@ body{
         transform:translateY(-.15em)
     }
     .feedback-input{
-        color: var(--light);
+        color: var(--text-primary) !important;
         border-radius:15px;
         line-height:22px;
         background-color:transparent;
@@ -365,10 +388,10 @@ body{
         background-position:calc(100% - 10px)
     }
     .feedback-input:not(:focus-within):invalid:not(:placeholder-shown){
-        background-image:url("res/check-error.png")
+        background-image:url("res/icons/check-error.png")
     }
     .feedback-input:not(:focus-within):valid:not(:placeholder-shown){
-        background-image:url("res/check-success.png")
+        background-image:url("res/icons/check-success.png")
     }
 
     #scroll-arrow{
@@ -381,7 +404,7 @@ body{
         display:block
     }
     .arrow-img{
-        width:40px;
+        width:min(3vw, 3vh);
         height:auto
     }
     @keyframes floatArrow{
@@ -419,7 +442,7 @@ body{
         height: 100%;
     }
     .about-column:before{
-        content:'';
+        content:''; 
         position:absolute;
         background:inherit;
         width:calc(100% + 50px);
@@ -445,7 +468,7 @@ body{
     }
     .about-column p{
         line-height:1.6;
-        color:var(--light);
+        color:var(--text-primary);
         text-shadow:0 1px 3px rgba(0,0,0,.4);
         margin:0;
         width:100%
@@ -461,7 +484,8 @@ body{
         margin-bottom:2rem;
         width:100%;
         display:flex;
-        justify-content:center
+        justify-content:center;
+        color: var(--text-primary) !important;
     }
     form input, textarea{
         height:5vh;
@@ -512,7 +536,7 @@ body{
         
         #section5 form {
             align-items: center; /* Center form elements */
-            width: 100%;
+            width: 90%;
             max-width: 500px; /* Limit form width on mobile */
         }
         
@@ -527,7 +551,7 @@ body{
 
     footer{
         background-color:var(--primary);
-        color:var(--light);
+        color:var(--light) !important;
         text-align:center;
         display:flex;
         justify-content:center;
@@ -551,7 +575,8 @@ body{
         display: flex;
         justify-content: space-between;
         font-size: clamp(0.6rem, 0.8vw, 2.6rem) !important;
-        line-height:1.4
+        line-height:1.4;
+        color: var(--light) !important;
     }
     
     .footer-icons{
@@ -590,14 +615,19 @@ body{
             transition: transform 0.2s ease-out;
         }
 
-        .parallax-background.about{
-            background-image: url('res/work.png');
+        /* Add these new theme-specific styles */
+        body.light-mode .parallax-background.about {
+            background-image: url('res/work_dark.png');
+        }
+
+        body.dark-mode .parallax-background.about {
+            background-image: url('res/work_light.png');
         }
 
         .about-column-wrapper {
             position: relative;
             width: 100% !important;
-            height: 100%;
+            height: 99%;
             overflow: hidden;
             border-radius: 16px !important;
             box-shadow:var(--shadow-lg);
@@ -619,7 +649,7 @@ body{
             overflow: hidden;
             pointer-events: none;
             border-radius: 20px;
-            height: 90%;
+            height: 99%;
             width: 100%;
         }
         
@@ -636,8 +666,8 @@ body{
 
         input::placeholder,
 textarea::placeholder {
-    color: var(--light); /* Change to any color you prefer */
-    opacity: 1; /* Optional: adjusts the opacity of the placeholder text */
+    color: var(--text-primary);
+    opacity: 0.7;
 }
 
 span{
@@ -648,34 +678,106 @@ span.accent{
     color: var(--accent);
 }
 
+.toggle-container {
+    position: fixed;
+    bottom: 5vh;
+    right: 2vw;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh; /* Space between buttons */
+    align-items: center;
+    height: 5vw;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 #lang-toggle {
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    bottom: 2rem;
-    right: 2rem;
-    position: fixed;
-    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-#lang-toggle img {
+#theme-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#lang-toggle img,
+#theme-toggle img {
     height: min(3vw, 3vh) !important;
+    width: auto;
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* When hidden is active on the button, also fade/slide the image */
-#lang-toggle.hidden img {
+#theme-toggle img {
+    position: absolute;
     opacity: 0;
-    transform: translateX(1rem); /* or translateY, or scale, whatever effect you want */
 }
 
-#lang-toggle.hidden {
+/* Show light icon in light mode */
+body.light-mode #theme-toggle img[src*="light"] {
+    opacity: 1;
+}
+
+/* Show dark icon in dark mode */
+body.dark-mode #theme-toggle img[src*="dark"] {
+    opacity: 1;
+}
+
+.toggle-container.hidden,
+#lang-toggle.hidden,
+#theme-toggle.hidden {
     opacity: 0;
     transform: translateX(100%);
     pointer-events: none;
     user-select: none;
+}
+
+#lang-toggle.hidden img,
+#theme-toggle.hidden img {
+    opacity: 0;
+    transform: translateX(1rem);
+}
+.logo-wrapper {
+    position: relative;
+    width: min(20vw, 20vh);
+    height: 3rem;
+    overflow: hidden;
+    left: 0;
+}
+
+.logo-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(var(--shadow-sm));
+    margin-left: 0;
+}
+
+/* Theme-specific styles */
+body.light-mode .logo-background {
+    background-image: url('res/LOGO_Dark.png');
+}
+
+body.dark-mode .logo-background {
+    background-image: url('res/LOGO.png');
 }

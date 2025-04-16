@@ -24,7 +24,9 @@
         <nav class="navbar">
             <div class="logo">
                 <button class="logo-btn" data-section="section1">
-                    <img loading="lazy" draggable="false" src="res/Logo_noText_png.png" alt="b-Tech Logo">
+                    <div class="logo-wrapper">
+                        <div class="logo-background"></div>
+                    </div>
                 </button>
             </div>
             <div class="nav-links">
@@ -66,9 +68,15 @@
         <section id="section1" class="section">
             <h2 class="hero-title"><span class="accent" data-en="Your" data-ro="Ideile tale"></span></h2>&nbsp;&nbsp;
             <h2 data-en="ideas made real" data-ro="devenite realitate"></h2>
-            <button id="lang-toggle">
-                <img src="res/en.png" alt="Language flag" />
-              </button>
+            <div class="toggle-container">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <img src="res/icons/dark.png" alt="Switch to light mode" class="theme-icon">
+                    <img src="res/icons/light.png" alt="Switch to dark mode" class="theme-icon">
+                </button>
+                <button id="lang-toggle">
+                    <img src="res/icons/en.png" alt="Language flag" />
+                </button>
+            </div>
         </section>
 
         <section id="section2" class="section">
@@ -296,7 +304,7 @@
                     <input name="tel" type="tel" class="feedback-input" placeholder="Phone" pattern="^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"/>
                     <textarea name="text" class="feedback-input" placeholder="Message" maxlength="300" required></textarea>
                     <input type="text" name="honeypot" style="display:none">
-                    <button type="submit" class="submit-btn"><span style="font-size: 1.7rem;" data-en="Send" data-ro="Trimite"></span></button>
+                    <button type="submit" class="submit-btn"><span data-en="Send" data-ro="Trimite"></span></button>
                 </form>
                 <div class="contact-image">
                     <img loading="lazy" src="res/contact.png" alt="Contact illustration" class="contact-img">
@@ -305,7 +313,7 @@
         </section>
 
         <div id="scroll-arrow" style="z-index: 1;">
-            <img loading="lazy" src="res/down-arrow.png" class="arrow-img"  alt="Scroll down arrow" draggable="false">
+            <img loading="lazy" src="res/icons/down-arrow.png" class="arrow-img"  alt="Scroll down arrow" draggable="false">
         </div>
     </main>
 
@@ -315,7 +323,7 @@
                 <div class="logo">
                     <img draggable="false" src="res/icons/beaver.png" alt="icon">
                 </div>
-                <p>BOBER TECHNOLOGIES S.R.L.-D.</p>
+                <p>BOBER TECHNOLOGIES S.R.L.&#8209;D.</p>
             </div>
             <div class="footer-icons">
                 <button class="footer-btn">

@@ -322,7 +322,7 @@ function updateLanguage(lang) {
   });
   
   // Update the flag based on language
-  flagImg.src = lang === 'en' ? 'res/en.png' : 'res/ro.png';
+  flagImg.src = lang === 'en' ? 'res/icons/en.png' : 'res/icons/ro.png';
   flagImg.alt = lang === 'en' ? 'English flag' : 'Romanian flag';
 }
 
@@ -355,14 +355,50 @@ fetch('https://ipapi.co/json')
         const currentScrollY = window.scrollY;
       
         if (currentScrollY - lastScrollY > 10) {
-          // Scrolling down → hide
-          toggleButton.classList.add('hidden');
+            // Scrolling down → hide
+            themeToggle.classList.add('hidden');
+            toggleButton.classList.add('hidden');
         } else if (lastScrollY - currentScrollY > 10) {
-          // Scrolling up → show
-          toggleButton.classList.remove('hidden');
+            // Scrolling up → show
+            themeToggle.classList.remove('hidden');
+            toggleButton.classList.remove('hidden');
         }
       
         lastScrollY = currentScrollY;
-      });
+    });
+
+
+      const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    // Function to set theme
+    function setTheme(isDark) {
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(isDark ? 'dark-mode' : 'light-mode');
+        localStorage.setItem('darkMode', isDark);
+    }
+
+    // Check for system preference and stored preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('darkMode');
+    
+    // Set initial theme
+    if (storedTheme !== null) {
+        setTheme(storedTheme === 'true');
+    } else {
+        setTheme(prefersDark);
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        setTheme(!document.body.classList.contains('dark-mode'));
+    });
+
+    // Handle system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (localStorage.getItem('darkMode') === null) {
+            setTheme(e.matches);
+        }
+    });
 
 });
